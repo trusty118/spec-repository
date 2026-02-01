@@ -1,0 +1,18 @@
+-- Create Manufacturers table
+CREATE TABLE MANUFACTURERS (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(255) NOT NULL,
+    Website_URL NVARCHAR(500)
+);
+
+-- Create Products table
+CREATE TABLE PRODUCTS (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(255) NOT NULL,
+    Manufacturer_ID INT,
+    Status NVARCHAR(20) CHECK (Status IN ('APPROVED', 'EXPIRED', 'PENDING') OR Status IS NULL),
+    Expiry_Date DATE,
+    Limitations NVARCHAR(MAX),
+    Image_URL NVARCHAR(500),
+    FOREIGN KEY (Manufacturer_ID) REFERENCES MANUFACTURERS(ID)
+);

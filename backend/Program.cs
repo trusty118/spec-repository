@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using SpecPrototype;
 
 var builder = WebApplication.CreateBuilder();
@@ -15,11 +16,13 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddOpenApi();
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
 app.UseCors("AllowAll");
 app.MapOpenApi();
+app.MapControllers();
 
 // Health check - useful to confirm the API is running
 app.MapGet("/api/health", () => "OK");

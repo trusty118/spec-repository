@@ -30,5 +30,9 @@ public class AppDbContext : DbContext
             .Property(p => p.WebsiteUrl)
             .HasColumnName("Website_URL");
 
+        modelBuilder.Entity<Product>()
+            .Property(p => p.ManufacturerId)
+            .HasColumnName("Manufacturer_ID");
+
     }
 }

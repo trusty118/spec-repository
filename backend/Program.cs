@@ -12,7 +12,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
-        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+        policy.WithOrigins("https://spec-frontend-app.azurewebsites.net")
+              .AllowAnyMethod()
+              .AllowAnyHeader());
 });
 
 builder.Services.AddOpenApi();

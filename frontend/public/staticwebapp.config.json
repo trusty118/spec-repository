@@ -17,12 +17,16 @@
     }
   ],
   "navigationFallback": {
-    "rewrite": "/index.html"
+    "rewrite": "/index.html",
+    "exclude": ["/_next/*", "/api/*", "/*.{css,js,jpg,png,gif,svg,ico}"]
   },
   "responseOverrides": {
     "401": {
       "redirect": "/.auth/login/aad",
       "statusCode": 302
     }
+  },
+  "globalHeaders": {
+    "cache-control": "no-cache"
   }
 }

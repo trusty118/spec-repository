@@ -19,7 +19,7 @@ interface Product {
   imageUrl: string | null;
 }
 
-const API_URL = "http://localhost:5076";
+const API_URL = "https://spec-backend.azurewebsites.net";
 
 export default function Home() {
   const [query, setQuery] = useState("");

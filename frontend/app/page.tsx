@@ -60,8 +60,15 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-blue-700 text-white px-6 py-4 shadow">
-        <h1 className="text-2xl font-bold">Spec Prototype</h1>
-        <p className="text-blue-200 text-sm">Watercare Approved Materials Search</p>
+        <div className="flex justify-between items-center">
+          <div>
+            <h1 className="text-2xl font-bold">Spec Prototype</h1>
+            <p className="text-blue-200 text-sm">Watercare Approved Materials Search</p>
+          </div>
+          <a href="/.auth/logout" className="text-sm bg-blue-600 hover:bg-blue-800 px-4 py-2 rounded">
+            Sign Out
+          </a>
+        </div>
       </div>
 
       {/* Search bar */}
@@ -71,7 +78,7 @@ export default function Home() {
           placeholder="Search products, manufacturers, or limitations..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full px-4 py-3 rounded-lg border border-gray-300 shadow-sm text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-3 rounded-lg border border-gray-300 shadow-sm text-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 

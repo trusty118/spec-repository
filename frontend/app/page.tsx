@@ -26,44 +26,6 @@ export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const [authenticated, setAuthenticated] = useState(false);
-  const [password, setPassword] = useState("");
-
-  if (!authenticated) {
-    return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-          <h1 className="text-2xl font-bold mb-4">Spec Prototype</h1>
-          <p className="text-gray-600 mb-4">Enter password to continue</p>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            onKeyPress={(e) => {
-              if (e.key === 'Enter' && password === 'demo2026') {
-                setAuthenticated(true);
-              }
-            }}
-            className="w-full px-4 py-2 border rounded mb-4"
-            placeholder="Password"
-          />
-          <button
-            onClick={() => {
-              if (password === 'demo2026') {
-                setAuthenticated(true);
-              } else {
-                alert('Incorrect password');
-              }
-            }}
-            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-          >
-            Login
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   // Fetch products whenever the search query changes
   useEffect(() => {
     const timer = setTimeout(async () => {
